@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Firmware Builder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+
+    <h1>Сборка дампапрошивки</h1>
+
+    <div class="selectors">
+        <div class="selector">
+            <label for="routerSelect">Роутер</label>
+            <select id="routerSelect"></select>
+        </div>
+
+        <div class="selector">
+            <label for="layoutSelect">Разметка</label>
+            <select id="layoutSelect"></select>
+        </div>
+    </div>
+
+    <div class="mac-input">
+        <label for="customMac">MAC (если пусто — будет сгенерирован)</label>
+        <input type="text" id="customMac" placeholder="AA:BB:CC:DD:EE:FF">
+        <span id="macWarning" class="mac-warning"></span>
+    </div>
+
+    <div class="default-warning">
+    Если файл для раздела не выбран, будет использован дефолтный файл из репозитория.
+    </div>
+
+    <div id="parts" class="parts"></div>
+
+    <button id="buildBtn">Собрать full.bin</button>
+    <progress id="buildProgress" value="0" max="100"></progress>
+
+    <pre id="log" class="log"></pre>
+</div>
+
+<script src="app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pako@2.1.0/dist/pako.min.js"></script>
+</body>
+</html>

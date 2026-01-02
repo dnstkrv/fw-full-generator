@@ -1,0 +1,59 @@
+{
+  "parts": {
+    "BL2": {
+      "default": "bl2.bin",
+      "max_size": 1048576
+    },
+    "uboot_env": {
+      "default": "u-boot-env.bin",
+      "max_size": 524288
+    },
+    "Factory": {
+      "default": "factory.bin",
+      "max_size": 2097152
+    },
+    "bdinfo": {
+      "default": "bdinfo.bin",
+      "max_size": 262144,
+      "inject_mac": true,
+      "mac_offset": "0xDE00"
+    },
+    "FIP": {
+      "default": "fip.bin",
+      "max_size": 2097152
+    },
+    "ubi": {
+      "default": "ubi.bin.gz",
+      "max_size": 0,
+      "compressed": true
+    }
+  },
+
+  "layouts": {
+    "nand_128": {
+      "name": "NAND 128 MB",
+      "flash_size": 134217728,
+      "map": {
+        "BL2":       { "offset": 0 },
+        "uboot_env": { "offset": 1048576 },
+        "Factory":   { "offset": 1572864 },
+        "bdinfo":    { "offset": 3670016 },
+        "FIP":       { "offset": 3932160 },
+        "ubi":       { "offset": 6029312, "default": "ubi_128mb.bin.gz" }
+      }
+    },
+
+    "nand_256": {
+      "name": "NAND 256 MB",
+      "flash_size": 268435456,
+      "map": {
+        "BL2":       { "offset": 0 },
+        "uboot_env": { "offset": 1048576 },
+        "Factory":   { "offset": 1572864 },
+        "bdinfo":    { "offset": 3670016 },
+        "FIP":       { "offset": 3932160 },
+        "ubi":       { "offset": 6029312, "default": "ubi_256mb.bin.gz" }
+      }
+    }
+  }
+}
